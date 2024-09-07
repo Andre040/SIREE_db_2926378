@@ -47,7 +47,7 @@ $equipo_seleccionado = isset($equipos[$categoria]) ? $equipos[$categoria] : [];
             width: 0;
             background-color: blue;
             height: 100vh;
-            padding: 20px;
+            padding: 0%;
             box-sizing: border-box;
             overflow-x: hidden;
             transition: 0.5s;
@@ -133,10 +133,11 @@ $equipo_seleccionado = isset($equipos[$categoria]) ? $equipos[$categoria] : [];
         /* Estilos para el menú cuando se abre */
         .sidebar.open {
             width: 200px;
+            padding: 75px 0;
         }
 
         main.open {
-            margin-left: 220px;
+            margin-left: 240px;
         }
 
         /* Estilos para los productos */
