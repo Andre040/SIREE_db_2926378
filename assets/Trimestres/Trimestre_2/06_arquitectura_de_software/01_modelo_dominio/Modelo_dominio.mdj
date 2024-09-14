@@ -135,7 +135,7 @@
 											"top": 430,
 											"width": 183,
 											"height": 13,
-											"text": "-nombre: string",
+											"text": "-User_nombre: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -152,7 +152,7 @@
 											"top": 445,
 											"width": 183,
 											"height": 13,
-											"text": "-id: int",
+											"text": "-User_id: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -169,7 +169,7 @@
 											"top": 460,
 											"width": 183,
 											"height": 13,
-											"text": "-contraseña: string",
+											"text": "-User_contraseña: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -186,7 +186,7 @@
 											"top": 475,
 											"width": 183,
 											"height": 13,
-											"text": "-fecha_de_registro: Date",
+											"text": "-User_fecha_de_registro: Date",
 											"horizontalAlignment": 0
 										}
 									],
@@ -451,7 +451,7 @@
 											"top": 678,
 											"width": 239,
 											"height": 13,
-											"text": "-id: string",
+											"text": "-Order_id: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -468,7 +468,7 @@
 											"top": 693,
 											"width": 239,
 											"height": 13,
-											"text": "-estado: string",
+											"text": "-Order_estado: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -485,7 +485,7 @@
 											"top": 708,
 											"width": 239,
 											"height": 13,
-											"text": "-fecha_de_creacion",
+											"text": "-Order_fecha_de_creacion",
 											"horizontalAlignment": 0
 										},
 										{
@@ -502,7 +502,7 @@
 											"top": 723,
 											"width": 239,
 											"height": 13,
-											"text": "-productos: string",
+											"text": "-Order_productos: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -519,7 +519,7 @@
 											"top": 738,
 											"width": 239,
 											"height": 13,
-											"text": "-total: decimal",
+											"text": "-Order_total: decimal",
 											"horizontalAlignment": 0
 										},
 										{
@@ -536,7 +536,7 @@
 											"top": 753,
 											"width": 239,
 											"height": 13,
-											"text": "-detalles: string",
+											"text": "-Order_detalles: string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -937,7 +937,7 @@
 											"top": 366,
 											"width": 271,
 											"height": 13,
-											"text": "-id: string",
+											"text": "-Product_id: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -954,7 +954,7 @@
 											"top": 381,
 											"width": 271,
 											"height": 13,
-											"text": "-nombre: string",
+											"text": "-Product_nombre: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -971,7 +971,7 @@
 											"top": 396,
 											"width": 271,
 											"height": 13,
-											"text": "-descripcion: string",
+											"text": "-Product_descripcion: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -988,7 +988,7 @@
 											"top": 411,
 											"width": 271,
 											"height": 13,
-											"text": "-precio: decimal",
+											"text": "-Product_precio: decimal",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1005,7 +1005,7 @@
 											"top": 426,
 											"width": 271,
 											"height": 13,
-											"text": "-stock",
+											"text": "-Product_stock",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1022,7 +1022,7 @@
 											"top": 441,
 											"width": 271,
 											"height": 13,
-											"text": "-categoria: string",
+											"text": "-Product_categoria: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1039,7 +1039,7 @@
 											"top": 456,
 											"width": 271,
 											"height": 13,
-											"text": "-ImagenURL: string",
+											"text": "-Product_ImagenURL: string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1865,7 +1865,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NCOZNb93/c="
 							},
-							"name": "nombre",
+							"name": "User_nombre",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -1875,7 +1875,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NCOZNb93/c="
 							},
-							"name": "id",
+							"name": "User_id",
 							"visibility": "private",
 							"type": "int"
 						},
@@ -1885,7 +1885,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NCOZNb93/c="
 							},
-							"name": "contraseña",
+							"name": "User_contraseña",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -1895,7 +1895,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NCOZNb93/c="
 							},
-							"name": "fecha_de_registro",
+							"name": "User_fecha_de_registro",
 							"visibility": "private",
 							"type": "Date"
 						}
@@ -1980,7 +1980,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NJWdddl/MM="
 							},
-							"name": "id",
+							"name": "Order_id",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -1990,7 +1990,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NJWdddl/MM="
 							},
-							"name": "estado",
+							"name": "Order_estado",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -2000,9 +2000,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NJWdddl/MM="
 							},
-							"name": "fecha_de_creacion",
-							"visibility": "private",
-							"type": ""
+							"name": "Order_fecha_de_creacion",
+							"visibility": "private"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2010,7 +2009,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NJWdddl/MM="
 							},
-							"name": "productos",
+							"name": "Order_productos",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -2020,7 +2019,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NJWdddl/MM="
 							},
-							"name": "total",
+							"name": "Order_total",
 							"visibility": "private",
 							"type": "decimal"
 						},
@@ -2030,7 +2029,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NJWdddl/MM="
 							},
-							"name": "detalles",
+							"name": "Order_detalles",
 							"visibility": "private",
 							"type": "string"
 						}
@@ -2149,7 +2148,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NQzjNfFlZM="
 							},
-							"name": "id",
+							"name": "Product_id",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -2159,7 +2158,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NQzjNfFlZM="
 							},
-							"name": "nombre",
+							"name": "Product_nombre",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -2169,7 +2168,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NQzjNfFlZM="
 							},
-							"name": "descripcion",
+							"name": "Product_descripcion",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -2179,7 +2178,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NQzjNfFlZM="
 							},
-							"name": "precio",
+							"name": "Product_precio",
 							"visibility": "private",
 							"type": "decimal"
 						},
@@ -2189,9 +2188,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NQzjNfFlZM="
 							},
-							"name": "stock",
-							"visibility": "private",
-							"type": ""
+							"name": "Product_stock",
+							"visibility": "private"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2199,7 +2197,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NQzjNfFlZM="
 							},
-							"name": "categoria",
+							"name": "Product_categoria",
 							"visibility": "private",
 							"type": "string"
 						},
@@ -2209,7 +2207,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGR8NQzjNfFlZM="
 							},
-							"name": "ImagenURL",
+							"name": "Product_ImagenURL",
 							"visibility": "private",
 							"type": "string"
 						}
