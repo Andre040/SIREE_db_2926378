@@ -63,7 +63,7 @@
 											"top": 647,
 											"width": 223,
 											"height": 13,
-											"text": "Usuario"
+											"text": "User"
 										},
 										{
 											"_type": "LabelView",
@@ -433,7 +433,7 @@
 											"top": 351,
 											"width": 225.919921875,
 											"height": 13,
-											"text": "Cliente"
+											"text": "Client"
 										},
 										{
 											"_type": "LabelView",
@@ -788,7 +788,7 @@
 											"top": 359,
 											"width": 271,
 											"height": 13,
-											"text": "Proveedor"
+											"text": "Supplier"
 										},
 										{
 											"_type": "LabelView",
@@ -1650,7 +1650,7 @@
 											"top": 351,
 											"width": 239,
 											"height": 13,
-											"text": "Administrador"
+											"text": "Admin"
 										},
 										{
 											"_type": "LabelView",
@@ -2269,7 +2269,7 @@
 											"top": 1047,
 											"width": 271,
 											"height": 13,
-											"text": "Orden"
+											"text": "Order"
 										},
 										{
 											"_type": "LabelView",
@@ -3736,7 +3736,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Usuario",
+					"name": "User",
 					"ownedElements": [
 						{
 							"_type": "UMLConstraint",
@@ -3894,7 +3894,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Cliente",
+					"name": "Client",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -4022,7 +4022,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Proveedor",
+					"name": "Supplier",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -4189,7 +4189,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Administrador",
+					"name": "Admin",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -4315,7 +4315,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Orden",
+					"name": "Order",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
