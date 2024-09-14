@@ -21,8 +21,9 @@ $equipos = [
     'video' => [
         ['nombre' => 'Cámara de Video Panasonic', 'imagen' => 'images/camara_video_panasonic.jpg', 'referencia' => 'Ref: HC-V770'],
         ['nombre' => 'Proyector Epson', 'imagen' => 'images/proyector_epson.jpg', 'referencia' => 'Ref: EH-TW7100'],
-        ['nombre' => 'Grabadora GoPro', 'imagen' => 'images/grabadora_gopro.jpg', 'referencia' => 'Ref: HERO9']
-    ]
+        ['nombre' => 'Grabadora GoPro', 'imagen' => 'images/grabadora_gopro.jpg', 'referencia' => 'Ref: HERO9'],
+        ['nombre' => 'Grabadora GoPro2', 'imagen' => 'images/grabadora_gopro.jpg', 'referencia' => 'Ref: HERO9']
+        ]
 ];
 
 $equipo_seleccionado = isset($equipos[$categoria]) ? $equipos[$categoria] : [];

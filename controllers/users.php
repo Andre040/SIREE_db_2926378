@@ -1,8 +1,11 @@
 <?php 
     require_once "models/User.php";
     class Users {
+
+        public function p() {
+            echo "Nose";
+        }
         public function create_user(){
-            
             // Crear un objeto 01 con los métodos set
             $user1 = new User;
             $user1->setUserId(1);
