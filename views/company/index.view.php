@@ -44,6 +44,7 @@ $equipo_seleccionado = isset($equipos[$categoria]) ? $equipos[$categoria] : [];
     <!-- Menú lateral -->
     <div id="sidebar" class="sidebar">
         <ul>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="index.php">Renta</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">Equipos</a>
