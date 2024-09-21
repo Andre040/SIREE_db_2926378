@@ -9,9 +9,9 @@ USE DB_SIREE;
 -- -----------------------------------------------------
 CREATE TABLE Clientes (
     ClienteID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
-    Dirección VARCHAR(255),
-    Teléfono VARCHAR(20),
+    Nombre VARCHAR(50) NOT NULL,
+    Dirección VARCHAR(100),
+    Teléfono VARCHAR(10),
     CorreoElectrónico VARCHAR(100)
 ) ENGINE=InnoDB;
 
@@ -22,7 +22,7 @@ CREATE TABLE Equipos (
     EquipoID INT AUTO_INCREMENT PRIMARY KEY,
     NombreEquipo VARCHAR(100) NOT NULL,
     Marca VARCHAR(50),
-    Modelo VARCHAR(50),
+    Procesador VARCHAR(50),
     NúmeroSerie VARCHAR(50),
     Estado ENUM('disponible', 'alquilado', 'en mantenimiento') NOT NULL
 ) ENGINE=InnoDB;
