@@ -9,20 +9,20 @@ $equipos = [
         ['nombre' => 'Dell XPS', 'imagen' => '././assets/img/dell_xps.jfif', 'referencia' => 'Ref: XPS13-7390']
     ],
     'camaras' => [
-        ['nombre' => 'Canon EOS', 'imagen' => 'images/canon_eos.jpg', 'referencia' => 'Ref: EOS-4000D'],
-        ['nombre' => 'Nikon D850', 'imagen' => 'images/nikon_d850.jpg', 'referencia' => 'Ref: D850-BODY'],
-        ['nombre' => 'Sony Alpha', 'imagen' => 'images/sony_alpha.jpg', 'referencia' => 'Ref: Alpha7III']
+        ['nombre' => 'Canon EOS', 'imagen' => '././assets/img/CANON EOS.png', 'referencia' => 'Ref: EOS-4000D'],
+        ['nombre' => 'Nikon D850', 'imagen' => '././assets/img/Nikon D850.png', 'referencia' => 'Ref: D850-BODY'],
+        ['nombre' => 'Sony Alpha', 'imagen' => '././assets/img/Sony Alpha.png', 'referencia' => 'Ref: Alpha7III']
     ],
     'audio' => [
-        ['nombre' => 'Micrófono Shure', 'imagen' => 'images/microfono_shure.jpg', 'referencia' => 'Ref: SM58'],
-        ['nombre' => 'Altavoces Bose', 'imagen' => 'images/altavoces_bose.jpg', 'referencia' => 'Ref: Bose-Audio'],
-        ['nombre' => 'Audífonos Sony', 'imagen' => 'images/audifonos_sony.jpg', 'referencia' => 'Ref: WH-1000XM4']
+        ['nombre' => 'Micrófono Shure', 'imagen' => '././assets/img/Micrófono Shure.png', 'referencia' => 'Ref: SM58'],
+        ['nombre' => 'Altavoces Bose', 'imagen' => '././assets/img/Altavoces Bose.png', 'referencia' => 'Ref: Bose-Audio'],
+        ['nombre' => 'Audífonos Sony', 'imagen' => '././assets/img/Audífonos Sony.png', 'referencia' => 'Ref: WH-1000XM4']
     ],
     'video' => [
-        ['nombre' => 'Cámara de Video Panasonic', 'imagen' => 'images/camara_video_panasonic.jpg', 'referencia' => 'Ref: HC-V770'],
-        ['nombre' => 'Proyector Epson', 'imagen' => 'images/proyector_epson.jpg', 'referencia' => 'Ref: EH-TW7100'],
-        ['nombre' => 'Grabadora GoPro', 'imagen' => 'images/grabadora_gopro.jpg', 'referencia' => 'Ref: HERO9'],
-        ['nombre' => 'Grabadora GoPro2', 'imagen' => 'images/grabadora_gopro.jpg', 'referencia' => 'Ref: HERO9']
+        ['nombre' => 'Cámara de Video Panasonic', 'imagen' => '././assets/img/Cámara de Video Panasonic.png', 'referencia' => 'Ref: HC-V770'],
+        ['nombre' => 'Proyector Epson', 'imagen' => '././assets/img/Proyector Epson.png', 'referencia' => 'Ref: EH-TW7100'],
+        ['nombre' => 'Grabadora GoPro', 'imagen' => '././assets/img/Grabadora GoPro.png', 'referencia' => 'Ref: HERO9'],
+        ['nombre' => 'Grabadora GoPro2', 'imagen' => '././assets/img/Grabadora GoPro2.png', 'referencia' => 'Ref: HERO9']
         ]
 ];
 
@@ -40,6 +40,7 @@ $equipo_seleccionado = isset($equipos[$categoria]) ? $equipos[$categoria] : [];
 </head>
 <body>
     <!-- Botón para abrir el menú -->
+     <img src="././assets/img/logo.png" alt="">
     <button class="open-btn" onclick="toggleMenu()">☰ Menú</button>
 
     <!-- Menú lateral -->
