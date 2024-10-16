@@ -4,26 +4,27 @@ $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : 'ninguna';
 
 $equipos = [
     'computadoras' => [
-        ['nombre' => 'Laptop HP', 'imagen' => '././assets/img/laptop_hp.jfif', 'referencia' => 'Ref: HP15-DW1002LA'],
-        ['nombre' => 'MacBook Pro', 'imagen' => '././assets/img/macbook_pro.jfif', 'referencia' => 'Ref: MacBookPro2020'],
-        ['nombre' => 'Dell XPS', 'imagen' => '././assets/img/dell_xps.jfif', 'referencia' => 'Ref: XPS13-7390']
+        ['nombre' => 'Laptop HP', 'imagen' => '../../assets/img/laptop_hp.jfif', 'referencia' => 'Ref: HP15-DW1002LA'],
+        ['nombre' => 'MacBook Pro', 'imagen' => '../../assets/img/macbook_pro.jfif', 'referencia' => 'Ref: MacBookPro2020'],
+        ['nombre' => 'Dell XPS', 'imagen' => '../../assets/img/dell_xps.jfif', 'referencia' => 'Ref: XPS13-7390']
     ],
     'camaras' => [
-        ['nombre' => 'Canon EOS', 'imagen' => '././assets/img/CANON EOS.png', 'referencia' => 'Ref: EOS-4000D'],
-        ['nombre' => 'Nikon D850', 'imagen' => '././assets/img/Nikon D850.png', 'referencia' => 'Ref: D850-BODY'],
-        ['nombre' => 'Sony Alpha', 'imagen' => '././assets/img/Sony Alpha.png', 'referencia' => 'Ref: Alpha7III']
+        ['nombre' => 'Canon EOS', 'imagen' => '../../assets/img/CANON EOS.png', 'referencia' => 'Ref: EOS-4000D'],
+        ['nombre' => 'Nikon D850', 'imagen' => '../../assets/img/Nikon D850.png', 'referencia' => 'Ref: D850-BODY'],
+        ['nombre' => 'Sony Alpha', 'imagen' => '../../assets/img/Sony Alpha.png', 'referencia' => 'Ref: Alpha7III']
     ],
     'audio' => [
-        ['nombre' => 'Micrófono Shure', 'imagen' => '././assets/img/Micrófono Shure.png', 'referencia' => 'Ref: SM58'],
-        ['nombre' => 'Altavoces Bose', 'imagen' => '././assets/img/Altavoces Bose.png', 'referencia' => 'Ref: Bose-Audio'],
-        ['nombre' => 'Audífonos Sony', 'imagen' => '././assets/img/Audífonos Sony.png', 'referencia' => 'Ref: WH-1000XM4']
+        ['nombre' => 'Micrófono Shure', 'imagen' => '../../assets/img/Micrófono Shure.png', 'referencia' => 'Ref: SM58'],
+        ['nombre' => 'Altavoces Bose', 'imagen' => '../../assets/img/Altavoces Bose.png', 'referencia' => 'Ref: Bose-Audio'],
+        ['nombre' => 'Audífonos Sony', 'imagen' => '../../assets/img/Audífonos Sony.png', 'referencia' => 'Ref: WH-1000XM4']
     ],
     'video' => [
-        ['nombre' => 'Cámara de Video Panasonic', 'imagen' => '././assets/img/Cámara de Video Panasonic.png', 'referencia' => 'Ref: HC-V770'],
-        ['nombre' => 'Proyector Epson', 'imagen' => '././assets/img/Proyector Epson.png', 'referencia' => 'Ref: EH-TW7100'],
-        ['nombre' => 'Grabadora GoPro', 'imagen' => '././assets/img/Grabadora GoPro.png', 'referencia' => 'Ref: HERO9'],
-        ['nombre' => 'Grabadora GoPro2', 'imagen' => '././assets/img/Grabadora GoPro2.png', 'referencia' => 'Ref: HERO9']
+        ['nombre' => 'Cámara de Video Panasonic', 'imagen' => '../../assets/img/Cámara de Video Panasonic.png', 'referencia' => 'Ref: HC-V770'],
+        ['nombre' => 'Proyector Epson', 'imagen' => '../../assets/img/Proyector Epson.png', 'referencia' => 'Ref: EH-TW7100'],
+        ['nombre' => 'Grabadora GoPro', 'imagen' => '../../assets/img/Grabadora GoPro.png', 'referencia' => 'Ref: HERO9'],
+        ['nombre' => 'Grabadora GoPro2', 'imagen' => '../../assets/img/Grabadora GoPro2.png', 'referencia' => 'Ref: HERO9']
         ]
+    
 ];
 
 $equipo_seleccionado = isset($equipos[$categoria]) ? $equipos[$categoria] : [];
@@ -35,26 +36,25 @@ $equipo_seleccionado = isset($equipos[$categoria]) ? $equipos[$categoria] : [];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renta de Equipos</title>
-    <link rel="stylesheet" href="././assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
 
 </head>
 <body>
     <!-- Botón para abrir el menú -->
-     <img src="././assets/img/logo.png" alt="">
     <button class="open-btn" onclick="toggleMenu()">☰ Menú</button>
 
     <!-- Menú lateral -->
     <div id="sidebar" class="sidebar">
         <ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="index.php">Renta</a></li>
+            <li><a href="index.view.php">Inicio</a></li>
+            <li><a href="index.view.php">Renta</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">Equipos</a>
                 <div class="dropdown-content">
-                    <a href="index.php?categoria=computadoras">Computadoras</a>
-                    <a href="index.php?categoria=camaras">Cámaras</a>
-                    <a href="index.php?categoria=audio">Equipos de Audio</a>
-                    <a href="index.php?categoria=video">Equipos de Video</a>
+                    <a href="index.view.php?categoria=computadoras">Computadoras</a>
+                    <a href="index.view.php?categoria=camaras">Cámaras</a>
+                    <a href="index.view.php?categoria=audio">Equipos de Audio</a>
+                    <a href="index.view.php?categoria=video">Equipos de Video</a>
                 </div>
             </li>
         </ul>
@@ -84,8 +84,9 @@ $equipo_seleccionado = isset($equipos[$categoria]) ? $equipos[$categoria] : [];
     </main>
 
     <!-- JavaScript para manejar el menú -->
-    <script src="././assets/js/scripts.js">
+    <script src="../../assets/js/scripts.js">
      
     </script>
+    
 </body>
 </html>
