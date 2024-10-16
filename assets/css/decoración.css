@@ -1,9 +1,10 @@
 body{background-image: url(../img/wallpapersden.com_ios-13-black-dark_1920x1080.jpg);}
-*{
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+
 .Estilo {
 	width: 400px;
 	background: #000000;
@@ -15,14 +16,15 @@ body{background-image: url(../img/wallpapersden.com_ios-13-black-dark_1920x1080.
 	color: white;
 	box-shadow: 2px 4px 15px #09ff00;
 }
+
 .Estilo h4 {
 	font-size: 40px;
 	margin-bottom: 20px;
-    text-align: center;
-    color: #09ff00;
+	text-align: center;
+	color: #09ff00;
 }
 
-.Caja{
+.Caja {
 	width: 100%;
 	background: #838383cc;
 	padding: 10px;
@@ -31,10 +33,10 @@ body{background-image: url(../img/wallpapersden.com_ios-13-black-dark_1920x1080.
 	margin-bottom: 16px;
 	font-family: 'calibri';
 	font-size: 18px;
-    color : #09ff00;
-}   
+	color: #09ff00;
+}
 
-.botones{
+.botones {
 	width: 100%;
 	background: #00ff00cc;
 	border: none;
@@ -44,12 +46,48 @@ body{background-image: url(../img/wallpapersden.com_ios-13-black-dark_1920x1080.
 	font-size: 16px;
 }
 
-::placeholder {color: white;}
-
-.Enlace{
-    color: #09ff00;
-    text-decoration: none;
+::placeholder {
+	color: white;
 }
+
+.Enlace {
+	color: #09ff00;
+	text-decoration: none;
+
+}
+
 .check {
 	background-color: #09ff00;
-	}
+}
+
+.Estilo h5 {
+	color: #09ff00;
+	margin-bottom: 5px;
+}
+
+.Cajaclave {
+	width: 100%;
+	background: #838383cc;
+	padding: 10px;
+	border: 1px solid #616a6b;
+	border-radius: 7px;
+	margin-bottom: 5px;
+	font-family: 'calibri';
+	font-size: 18px;
+	color: #09ff00;
+}
+
+p {
+	margin-bottom: 5px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+#mensajeclave {
+	display: none;
+	color: rgb(0, 255, 0);
+}
