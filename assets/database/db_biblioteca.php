@@ -1,5 +1,6 @@
 <?php
-    class DataBase{        
+    class DataBase{
+        #  Conexión Local
         public static function connection(){
             $hostname = "localhost";
             $port = "3306";
