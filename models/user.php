@@ -6,11 +6,11 @@
         private $dbh;
         private $user_id;
         private $user_name;
+        private $user_email;
+        private $user_password;
         private $user_address;
-        private $user_category;
+        private $user_rol;
         private $user_phone;
-        private $user_pass;
-        private $user_status;
 
         // Sobrecarga de Constructores
         public function __construct(){
@@ -26,24 +26,15 @@
             }
         }
 
-        # Constructor 0 parámetros
-        public function __construct0(){}
-
-        # Constructor 02 parámetros
-        public function __construct2($user_id,$user_pass){
-            $this->user_id = $user_id;
-            $this->user_pass = $user_pass;
-        }
-
         # Constructor 07 parámetros
-        public function __construct7($user_id,$user_name,$user_address,$user_category,$user_phone,$user_pass,$user_status){
+        public function __construct7($user_id,$user_name,$user_address,$user_email,$user_phone,$user_rol,$user_password){
             $this->user_id = $user_id;            
             $this->user_name = $user_name;            
+            $this->user_email = $user_email;            
+            $this->user_password = $user_password;            
             $this->user_address = $user_address;
-            $this->user_category = $user_category;            
+            $this->user_rol = $user_rol;            
             $this->user_phone = $user_phone;            
-            $this->user_pass = $user_pass;            
-            $this->user_status = $user_status;            
         }
 
         // Métodos setter y getter
@@ -62,6 +53,20 @@
         public function getUserName(){
             return $this->user_name;
         }
+        # Usuario: Correo         
+        public function setUserEmail($user_email){
+            $this->user_email = $user_email;
+        }
+        public function getUserEmail(){
+            return $this->user_email;
+        }
+        # Usuario: Contraseña        
+        public function setUserPassword($user_password){
+            $this->user_password = $user_password;
+        }
+        public function getUserPassword(){
+            return $this->user_password;
+        }
         # Usuario: Direccion         
         public function setUserAddress($user_address){
             $this->user_address = $user_address;
@@ -69,12 +74,12 @@
         public function getUserAddress(){
             return $this->user_address;
         }
-        # Usuario: Categoria         
-        public function setUserCategory($user_category){
-            $this->user_category = $user_category;
+        # Usuario: Rol     
+        public function setUserRol($user_rol){
+            $this->user_rol = $user_rol;
         }
-        public function getUserCategory(){
-            return $this->user_category;
+        public function getUserRol(){
+            return $this->user_rol;
         }
         # Usuario: Teléfono         
         public function setUserPhone($user_phone){
@@ -83,25 +88,39 @@
         public function getUserPhone(){
             return $this->user_phone;
         }
-        # Usuario: Contraseña        
-        public function setUserPass($user_pass){
-            $this->user_pass = $user_pass;
-        }
-        public function getUserPass(){
-            return $this->user_pass;
-        }
-        # Usuario: Estado     
-        public function setUserStatus($user_status){
-            $this->user_status = $user_status;
-        }
-        public function getUserStatus(){
-            return $this->user_status;
-        }
-
+        
         // Métodos: Persistencia a la base de datos
         
         # Login
-        public function login(){}
+        public function login(){
+            try {
+                $sql = 'SELECT * FROM USERS
+                        WHERE user_email = :userEmail AND user_pass = :userPass';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPass', sha1($this->getUserPassword()));
+                $stmt->execute();
+                $userDb = $stmt->fetch();
+                if ($userDb) {
+                    $user = new User(
+                        $userDb['rol_code'],                    
+                        $userDb['user_code'],
+                        $userDb['user_name'],
+                        $userDb['user_lastname'],
+                        $userDb['user_id'],
+                        $userDb['user_email'],
+                        $userDb['user_pass'],
+                        $userDb['user_state']
+                    );
+                    return $user;
+                } else {
+                    return false;
+                }
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+        
 
         # CU09 - Crear Usuario
         public function user_create(){
@@ -118,11 +137,11 @@
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('socio_id', $this->getUserId());                
                 $stmt->bindValue('socio_nombre', $this->getUserName());                
+                $stmt->bindValue('socio_categoria', $this->getUserEmail());                
+                $stmt->bindValue('socio_pass', $this->getUserPassword());                
                 $stmt->bindValue('socio_direccion', $this->getUserAddress());                
-                $stmt->bindValue('socio_categoria', $this->getUserCategory());                
+                $stmt->bindValue('socio_estado', $this->getUserRol());                
                 $stmt->bindValue('socio_telefono', $this->getUserPhone());                
-                $stmt->bindValue('socio_pass', $this->getUserPass());                
-                $stmt->bindValue('socio_estado', $this->getUserStatus());                
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());

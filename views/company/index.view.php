@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>SIREE - Coffee Shop HTML Template</title>
@@ -8,22 +7,6 @@
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="../../assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="../../assets/css/style.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -61,7 +44,7 @@
         <div id="blog-carousel" class="carousel slide overlay-bottom" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="img/carousel-1.jpg" alt="Image">
+                    <img class="w-100" src="../../assets/img/carousel-1.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         
                         <h1 class="display-1 text-white m-0">SIREE</h1>
@@ -69,7 +52,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
+                    <img class="w-100" src="../../assets/img/carousel-2.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         
                         <h1 class="display-1 text-white m-0">SIREE</h1>
@@ -104,7 +87,7 @@
                 </div>
                 <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/about.png" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="../../assets/img/about.png" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-4 py-0 py-lg-5">
@@ -132,7 +115,7 @@
                 <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5">
-                            <img class="img-fluid mb-3 mb-sm-0" src="img/service-1.jpg" alt="">
+                            <img class="../../assets/img-fluid mb-3 mb-sm-0" src="../../assets/img/service-1.jpg" alt="">
                         </div>
                         <div class="col-sm-7">
                             <h4><i class="fa fa-truck service-icon"></i>Fastest Door Delivery</h4>
@@ -144,7 +127,7 @@
                 <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5">
-                            <img class="img-fluid mb-3 mb-sm-0" src="img/service-2.jpg" alt="">
+                            <img class="../../assets/img-fluid mb-3 mb-sm-0" src="../../assets/img/service-2.jpg" alt="">
                         </div>
                         <div class="col-sm-7">
                             <h4><i class="fa fa-coffee service-icon"></i>Fresh Coffee Beans</h4>
@@ -156,7 +139,7 @@
                 <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5">
-                            <img class="img-fluid mb-3 mb-sm-0" src="img/service-3.jpg" alt="">
+                            <img class="../../assets/img-fluid mb-3 mb-sm-0" src="../../assets/img/service-3.jpg" alt="">
                         </div>
                         <div class="col-sm-7">
                             <h4><i class="fa fa-award service-icon"></i>Best Quality Coffee</h4>
@@ -168,7 +151,7 @@
                 <div class="col-lg-6 mb-5">
                     <div class="row align-items-center">
                         <div class="col-sm-5">
-                            <img class="img-fluid mb-3 mb-sm-0" src="img/service-4.jpg" alt="">
+                            <img class="../../assets/img-fluid mb-3 mb-sm-0" src="../../assets/img/service-4.jpg" alt="">
                         </div>
                         <div class="col-sm-7">
                             <h4><i class="fa fa-table service-icon"></i>Online Table Booking</h4>
@@ -214,7 +197,7 @@
                     <h1 class="mb-5">Hot Coffee</h1>
                     <div class="row align-items-center mb-5">
                         <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-1.jpg" alt="">
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="../../assets/img/menu-1.jpg" alt="">
                             <h5 class="menu-price">$5</h5>
                         </div>
                         <div class="col-8 col-sm-9">
@@ -224,7 +207,7 @@
                     </div>
                     <div class="row align-items-center mb-5">
                         <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-2.jpg" alt="">
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="../../assets/img/menu-2.jpg" alt="">
                             <h5 class="menu-price">$7</h5>
                         </div>
                         <div class="col-8 col-sm-9">
@@ -234,7 +217,7 @@
                     </div>
                     <div class="row align-items-center mb-5">
                         <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-3.jpg" alt="">
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="../../assets/img/menu-3.jpg" alt="">
                             <h5 class="menu-price">$9</h5>
                         </div>
                         <div class="col-8 col-sm-9">
@@ -247,7 +230,7 @@
                     <h1 class="mb-5">Cold Coffee</h1>
                     <div class="row align-items-center mb-5">
                         <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-1.jpg" alt="">
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="../../assets/img/menu-1.jpg" alt="">
                             <h5 class="menu-price">$5</h5>
                         </div>
                         <div class="col-8 col-sm-9">
@@ -257,7 +240,7 @@
                     </div>
                     <div class="row align-items-center mb-5">
                         <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-2.jpg" alt="">
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="../../assets/img/menu-2.jpg" alt="">
                             <h5 class="menu-price">$7</h5>
                         </div>
                         <div class="col-8 col-sm-9">
@@ -267,7 +250,7 @@
                     </div>
                     <div class="row align-items-center mb-5">
                         <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-3.jpg" alt="">
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="../../assets/img/menu-3.jpg" alt="">
                             <h5 class="menu-price">$9</h5>
                         </div>
                         <div class="col-8 col-sm-9">
@@ -357,7 +340,7 @@
             <div class="owl-carousel testimonial-carousel">
                 <div class="testimonial-item">
                     <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid" src="img/testimonial-1.jpg" alt="">
+                        <img class="../../assets/img-fluid" src="../../assets/img/testimonial-1.jpg" alt="">
                         <div class="ml-3">
                             <h4>Client Name</h4>
                             <i>Profession</i>
@@ -367,7 +350,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid" src="img/testimonial-2.jpg" alt="">
+                        <img class="../../assets/img-fluid" src="../../assets/img/testimonial-2.jpg" alt="">
                         <div class="ml-3">
                             <h4>Client Name</h4>
                             <i>Profession</i>
@@ -377,7 +360,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid" src="img/testimonial-3.jpg" alt="">
+                        <img class="../../assets/img-fluid" src="../../assets/img/testimonial-3.jpg" alt="">
                         <div class="ml-3">
                             <h4>Client Name</h4>
                             <i>Profession</i>
@@ -387,7 +370,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid" src="img/testimonial-4.jpg" alt="">
+                        <img class="../../assets/img-fluid" src="../../assets/img/testimonial-4.jpg" alt="">
                         <div class="ml-3">
                             <h4>Client Name</h4>
                             <i>Profession</i>

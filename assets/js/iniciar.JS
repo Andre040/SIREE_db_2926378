@@ -32,7 +32,7 @@ var A=document.getElementById('confirmar').checked;
             icon: 'success',
             title: '¡Bienvenido!',
             text: 'Iniciaste sesión correctamente',
-            confirmButtonText: '<a href="../../views/company/index.view.php">Aceptar</a>'
+            confirmButtonText: '<a href="../../views/company/index.view.html">Aceptar</a>'
 
         })
     }
