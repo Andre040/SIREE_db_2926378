@@ -1,11 +1,8 @@
-<?php
-class Landing{
-
-    public function __construct() {}
-    
-    public function main() {
-        echo "ola";
-        
-    }
-}
+<?php	
+	class Dashboard{
+		public function main(){			
+			$session = $_SESSION['session'];			
+			require_once "views/roles/".$session."/".$session.".php";
+		}
+	}
 ?>

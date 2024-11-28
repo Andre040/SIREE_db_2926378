@@ -1,6 +1,6 @@
 <?php
     // Nombra la clase
-    class Renta {
+    class Rent {
         
         // Atributos
         private $dbh;
@@ -22,7 +22,7 @@
             }
         }
          # Constructor 04 parámetros
-         public function __construct7($rent_id,$rent_date,$rent_date_refund,$rent_status){
+         public function __construct4($rent_id,$rent_date,$rent_date_refund,$rent_status){
             $this->rent_id = $rent_id;            
             $this->rent_date = $rent_date;            
             $this->rent_date_refund = $rent_date_refund;            
@@ -58,6 +58,61 @@
         public function getUserPassword(){
             return $this->rent_status;
         }
+               # Login
+               public function login(){
+                try {
+                    $sql = 'SELECT * FROM USERS
+                            WHERE user_email = :userEmail AND user_pass = :userPass';
+                    $stmt = $this->dbh->prepare($sql);
+                    $stmt->bindValue('userEmail', $this->getUserEmail());
+                    $stmt->bindValue('userPass', sha1($this->getUserPassword()));
+                    $stmt->execute();
+                    $userDb = $stmt->fetch();
+                    if ($userDb) {
+                        $user = new User(
+                            $userDb['rol_code'],                    
+                            $userDb['user_code'],
+                            $userDb['user_name'],
+                            $userDb['user_lastname'],
+                            $userDb['user_id'],
+                            $userDb['user_email'],
+                            $userDb['user_pass'],
+                            $userDb['user_state']
+                        );
+                        return $user;
+                    } else {
+                        return false;
+                    }
+                } catch (Exception $e) {
+                    die($e->getMessage());
+                }
+            }
+            
+    
+            # CU09 - Crear Usuario
+            public function user_create(){
+                try {
+                    $sql = 'INSERT INTO SOCIOS VALUES (
+                            :socio_id,
+                            :socio_nombre,
+                            :socio_direccion,
+                            :socio_categoria,
+                            :socio_telefono,
+                            :socio_pass,
+                            :socio_estado
+                        )';
+                    $stmt = $this->dbh->prepare($sql);          
+                    $stmt->bindValue('socio_categoria', $this->getUserEmail());                
+                    $stmt->bindValue('socio_pass', $this->getUserPassword());                 
+                    $stmt->execute();
+                } catch (Exception $e) {
+                    die($e->getMessage());
+                }
+            }
+    
+        }
+    
+    ?>
         
-    }
+    
   

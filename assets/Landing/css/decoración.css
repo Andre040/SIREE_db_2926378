@@ -1,0 +1,107 @@
+body {
+	background-image: url(wallpapersden.com_ios-13-black-dark_1920x1080.jpg);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.Estilo {
+	width: 400px;
+	background: #000000;
+	padding: 15px;
+	margin: auto;
+	margin-top: 150px;
+	border-radius: 20px;
+	font-family: 'calibri';
+	color: white;
+	box-shadow: 2px 4px 15px #09ff00;
+}
+
+.Estilo h4 {
+	font-size: 40px;
+	margin-bottom: 20px;
+	text-align: center;
+	color: #09ff00;
+}
+
+.Caja {
+	width: 100%;
+	background: #838383cc;
+	padding: 10px;
+	border: 1px solid #616a6b;
+	border-radius: 7px;
+	margin-bottom: 16px;
+	font-family: 'calibri';
+	font-size: 18px;
+	color: #09ff00;
+}
+
+.botones {
+	width: 100%;
+	background: #00ff00cc;
+	border: none;
+	padding: 12px;
+	color: white;
+	margin: 16px 0;
+	font-size: 16px;
+}
+
+::placeholder {
+	color: white;
+}
+
+.Enlace {
+	color: #09ff00;
+	text-decoration: none;
+
+}
+
+.check {
+	background-color: #09ff00;
+}
+
+.Estilo h5 {
+	color: #09ff00;
+	margin-bottom: 5px;
+}
+
+.Cajaclave {
+	width: 100%;
+	background: #838383cc;
+	padding: 10px;
+	border: 1px solid #616a6b;
+	border-radius: 7px;
+	margin-bottom: 5px;
+	font-family: 'calibri';
+	font-size: 18px;
+	color: #09ff00;
+}
+
+p {
+	margin-bottom: 5px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+#mensajeclave {
+	display: none;
+	color: rgb(0, 255, 0);
+}
+@font-face {
+    font-family: 'Graffonti';
+    src: url('letras/degrassi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.graffiti-font {
+    font-family: 'Graffonti', sans-serif;
+    font-size: 3em;
+    color: #000; }

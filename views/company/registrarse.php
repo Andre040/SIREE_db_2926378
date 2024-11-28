@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primer trabajo</title>
-    <link rel="stylesheet" href="../../assets/css/decoración.css">
+    <link rel="stylesheet" href="././assets/Landing/css/decoración.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
     </script>
 
@@ -17,18 +17,11 @@
         <form
             id="F">
             <input class="Caja" type="text" name="Nombres" id="Nombres" placeholder="Ingrese su nombre" onfocus="ocultar()">
-            <input class="Caja" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" onfocus="ocultar()">
             <input class="Caja" type="email" name="correo" id="correo" placeholder="Ingrese su correo" onfocus="ocultar()">
             <input class="Caja" type="password" name="clave" id="clave" placeholder="Ingrese su contraseña" onfocus="mensaje()"> </input>
             <h5 id="mensajeclave">La contraseña debe tener almenos 7 caracteres y solo letras</h5>
             <input class="Caja" type="password" name="clave2" id="clave2" placeholder="Confirmar contraseña" onfocus="ocultar()"></input>
            <input placeholder="Tipo de documento" list="Documento" class="Caja" id="DC" onfocus="ocultar()"></input>
-           <datalist id="Documento" name="Documento">
-                <option value="CC">Cedula de ciudadania</option>
-                <option value="TI">Tarjeta de identidad</option>
-                <option value="RC">Registro civil</option>
-                <option value="CE">Cedula de extranjeria</option>
-            </datalist>
             <input class="Caja" type="number" name="Id" id="Id" placeholder="Numero de documento" onfocus="ocultar()">
             
             
@@ -38,7 +31,7 @@
             <button class="botones" onclick="Alert()" type="boton" onfocus="ocultar()">Insertar</button>
         </form>
     </section>
-    <script src="../../assets/js/Registrarse.JS">
+    <script src="././assets/Landing/js/Registrarse.JS">
     </script>
 </body>
 
