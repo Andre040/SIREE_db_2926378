@@ -92,9 +92,9 @@
         // Métodos: Persistencia a la base de datos
         
         # Login
-        public function login(){
+        public function Login(){
             try {
-                $sql = 'SELECT * FROM USERS
+                $sql = 'SELECT * FROM USUARIOS
                         WHERE user_email = :userEmail AND user_pass = :userPass';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('userEmail', $this->getUserEmail());

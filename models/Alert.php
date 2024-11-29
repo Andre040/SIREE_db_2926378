@@ -97,7 +97,7 @@ class Alert
     public function getAlertById()
     {
         try {
-            $sql = 'SELECT * FROM ALERTS WHERE alert_id = :alertId';
+            $sql = 'SELECT * FROM NOTIFICACIONES WHERE alert_id = :idnotificacion';
             $stmt = $this->dbh->prepare($sql);
             $stmt->bindValue('alertId', $this->getAlertId());
             $stmt->execute();
