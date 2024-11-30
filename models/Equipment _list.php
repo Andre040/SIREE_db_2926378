@@ -101,13 +101,12 @@ class Equipment_list
         } catch (Exception $e) {
             die($e->getMessage());
         }
-    }
+    
     } // Eliminar (Delete) 
-    public function delete($idListadoEquipo)
-    {
+    public function delete($idListadoEquipo){
         $sql = "DELETE FROM LISTADO_DE_EQUIPOS WHERE Id_listado_equipo = :id_listado_equipo";
         $stmt = $this->dbh->prepare($sql);
         $stmt->bindValue(':id_listado_equipo', $idListadoEquipo);
         $stmt->execute();
     }
-}
+
