@@ -142,48 +142,49 @@ class User
     }
 
 
-    # CU09 - Crear Usuario
     public function user_create()
-    {
-        include "Rol.php";
-        try {
-            $sql = 'INSERT INTO USUARIOS VALUES (
-                        :nombre,
-                        :email,
-                        :contraseña,
-                        :celular,
-                        :direccion,
-                        :id_rol
-                    )';
-            $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue('nombre', $this->getUserName());
-            $stmt->bindValue('email', $this->getUserEmail());
-            $stmt->bindValue('contraseña', $this->getUserPassword());
-            $stmt->bindValue('celular', $this->getUserPhone());
-            $stmt->bindValue('direccion', $this->getUserAddress());
-            $stmt->bindValue('rol_name', $this->user_rol->getRolName());
-            $stmt->execute();
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
+{
+    try {
+        $sql = 'INSERT INTO USUARIOS (nombre, email, contraseña, celular, direccion, id_rol) VALUES (
+                    :nombre,
+                    :email,
+                    :contraseña,
+                    :celular,
+                    :direccion,
+                    2 -- id del rol "Cliente"
+                )';
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue(':nombre', $this->getUserName(), PDO::PARAM_STR);
+        $stmt->bindValue(':email', $this->getUserEmail(), PDO::PARAM_STR);
+        $stmt->bindValue(':contraseña', $this->getUserPassword(), PDO::PARAM_STR);
+        $stmt->bindValue(':celular', $this->getUserPhone(), PDO::PARAM_STR);
+        $stmt->bindValue(':direccion', $this->getUserAddress(), PDO::PARAM_STR);
+        $stmt->execute();
+    } catch (Exception $e) {
+        die($e->getMessage());
     }
+}
+
+    
     # RF04_CU04 - Consultar Usuarios
     public function read_users()
     {
         try {
             $userList = [];
-            $sql = 'SELECT * FROM USUARIOS';
+            // Incluye la tabla de roles y la unión con la tabla de usuarios
+            $sql = 'SELECT u.*, r.nombre FROM USUARIOS u
+                    JOIN ROL r ON u.id_rol = r.id_rol';
             $stmt = $this->dbh->query($sql);
-            
-            $stmt->bindValue('id_rol', $this->user_rol);
-            foreach ($stmt->fetchAll() as $userDb) {
-                $userObj = new User;
+    
+            foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $userDb) {
+                $userObj = new User();
                 $userObj->setUserId($userDb['id_usuario']);
                 $userObj->setUserName($userDb['nombre']);
-                $userObj->setUserName($userDb['email']);
-                $userObj->setUserName($userDb['contraseña']);
-                $userObj->setUserName($userDb['celular']);
-                $userObj->setUserName($userDb['direccion']);
+                $userObj->setUserEmail($userDb['email']);
+                $userObj->setUserPassword($userDb['contraseña']);
+                $userObj->setUserPhone($userDb['celular']);
+                $userObj->setUserAddress($userDb['direccion']);
+                $userObj->setUserRol($userDb['nombre']); // Ajusta esto según el nombre del campo de rol
                 array_push($userList, $userObj);
             }
             return $userList;
@@ -191,31 +192,32 @@ class User
             die($e->getMessage());
         }
     }
-
-    # RF06_CU06 - Actualizar Usuarios
-    public function update_users()
-    {
-        try {
-            $sql = 'UPDATE USUARIOS SET
-                            id_usuario = UserCode,
-                            nombre = :UserName,
-                            email = :UserEmail,
-                            contraseña = :UserPassword,
-                            celular = :UserPhone,
-                            direccion = UserAdress
-                        WHERE id_usuario = :UserCode';
-            $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue('UserCode', $this->getUserId());
-            $stmt->bindValue('UserName', $this->getUserName());
-            $stmt->bindValue('UserEmail', $this->getUserEmail());
-            $stmt->bindValue('UserPassword', $this->getUserPassword());
-            $stmt->bindValue('UserPhone', $this->getUserPhone());
-            $stmt->bindValue('UserAddress', $this->getUserAddress());
-            $stmt->execute();
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
+public function update_users()
+{
+    try {
+        $sql = 'UPDATE USUARIOS SET
+                    nombre = :UserName,
+                    email = :UserEmail,
+                    contraseña = :UserPassword,
+                    celular = :UserPhone,
+                    direccion = :UserAddress,
+                    user_rol = :UserRole
+                WHERE id_usuario = :UserCode';
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue(':UserCode', $this->getUserId(), PDO::PARAM_INT);
+        $stmt->bindValue(':UserName', $this->getUserName(), PDO::PARAM_STR);
+        $stmt->bindValue(':UserEmail', $this->getUserEmail(), PDO::PARAM_STR);
+        $stmt->bindValue(':UserPassword', $this->getUserPassword(), PDO::PARAM_STR);
+        $stmt->bindValue(':UserPhone', $this->getUserPhone(), PDO::PARAM_STR);
+        $stmt->bindValue(':UserAddress', $this->getUserAddress(), PDO::PARAM_STR);
+        $stmt->bindValue(':UserRole', $this->getUserRol(), PDO::PARAM_INT); // Asume que el rol es un entero
+        $stmt->execute();
+    } catch (Exception $e) {
+        die($e->getMessage());
     }
+}
+
+
     # RF07_CU07 - Eliminar Usuario
     public function delete_User($user_id)
     {
