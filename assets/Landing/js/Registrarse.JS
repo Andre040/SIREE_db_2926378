@@ -6,11 +6,13 @@ function Alert() {
     var N = document.getElementById('Nombres').value;
     var G = document.getElementById('correo').value;
     var C = document.getElementById('clave').value;
-    var A = document.getElementById('confirmar').checked;
-    var ID = document.getElementById('Id').value;
-    var D = document.getElementById('DC').value;
     var CC = document.getElementById('clave2').value;
+    var Rl = document.getElementById('rol').value;
+    var Cel = document.getElementById('celular').value;
+    var Dirr = document.getElementById('direccion').value;
+    var A = document.getElementById('confirmar').checked;
     var SL = /^[a-zA-Z]+$/;
+    var SN = /^[0-9]+$/;
     if (N.length == 0) {
         Swal.fire({
             icon: 'error',
@@ -78,7 +80,7 @@ function Alert() {
                 }
             }
         }
-
+    
 
 
 function mensaje() {

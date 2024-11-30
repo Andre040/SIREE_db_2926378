@@ -1,6 +1,6 @@
 body {
-	background-image: url(wallpapersden.com_ios-13-black-dark_1920x1080.jpg);
-}
+	background-image: url("../img/dark-background-abstract-background-network-3d-background-7680x4320-8324.png");
+	}
 
 * {
 	margin: 0;
@@ -17,14 +17,14 @@ body {
 	border-radius: 20px;
 	font-family: 'calibri';
 	color: white;
-	box-shadow: 2px 4px 15px #09ff00;
+	box-shadow: 2px 4px 15px #2712e7;
 }
 
 .Estilo h4 {
 	font-size: 40px;
 	margin-bottom: 20px;
 	text-align: center;
-	color: #09ff00;
+	color: #2712e7;
 }
 
 .Caja {
@@ -36,12 +36,12 @@ body {
 	margin-bottom: 16px;
 	font-family: 'calibri';
 	font-size: 18px;
-	color: #09ff00;
+	color: #2712e7;
 }
 
 .botones {
 	width: 100%;
-	background: #00ff00cc;
+	background: #2712e7;
 	border: none;
 	padding: 12px;
 	color: white;
@@ -54,17 +54,17 @@ body {
 }
 
 .Enlace {
-	color: #09ff00;
+	color: #2712e7;
 	text-decoration: none;
 
 }
 
 .check {
-	background-color: #09ff00;
+	background-color: #2712e7;
 }
 
 .Estilo h5 {
-	color: #09ff00;
+	color: #2712e7;
 	margin-bottom: 5px;
 }
 
@@ -77,7 +77,7 @@ body {
 	margin-bottom: 5px;
 	font-family: 'calibri';
 	font-size: 18px;
-	color: #09ff00;
+	color: #2712e7;
 }
 
 p {
@@ -92,7 +92,7 @@ a {
 
 #mensajeclave {
 	display: none;
-	color: rgb(0, 255, 0);
+	color: rgb(29, 15, 223);
 }
 @font-face {
     font-family: 'Graffonti';
