@@ -5,7 +5,7 @@ require_once './controllers/users.php';
 try {
     $dbh = DataBase::connection();
     $userModel = new User($dbh);
-    $userController = new UserController($userModel);
+    $userController = new Users($userModel);
 
     // Variables para cargar datos en el formulario
     $editUser = null;
@@ -24,7 +24,9 @@ try {
             'email' => $_POST['email'],
             'password' => $_POST['password'],
             'phone' => $_POST['phone'],
+            'id_rol' => $_POST['id_rol'],
             'address' => $_POST['address']
+
         ];
         $userController->createUser($user_data);
         header('Location: ' . $_SERVER['PHP_SELF']);

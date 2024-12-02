@@ -1,10 +1,8 @@
 <?php
-require_once './views/roles/crud_php/conexiones.php';
-
-?>
+require_once './views/roles/crud_php/conexiones/UserConection.php';?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
@@ -22,26 +20,30 @@ require_once './views/roles/crud_php/conexiones.php';
             <form method="POST" action="">
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre de la Persona</label>
-                    <input type="text" class="form-control" name="name" value="<?php echo $editUser ? htmlspecialchars($editUser->getUserName(), ENT_QUOTES, 'UTF-8') : ''; ?>">
+                    <input type="text" class="form-control" name="name" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserName(), ENT_QUOTES, 'UTF-8') : ''; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" name="email" value="<?php echo $editUser ? htmlspecialchars($editUser->getUserEmail(), ENT_QUOTES, 'UTF-8') : ''; ?>">
+                    <input type="email" class="form-control" name="email" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserEmail(), ENT_QUOTES, 'UTF-8') : ''; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
-                    <input type="text" class="form-control" name="password" value="<?php echo $editUser ? htmlspecialchars($editUser->getUserPassword(), ENT_QUOTES, 'UTF-8') : ''; ?>">
+                    <input type="text" class="form-control" name="password" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserPassword(), ENT_QUOTES, 'UTF-8') : ''; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">Celular</label>
-                    <input type="text" class="form-control" name="phone" value="<?php echo $editUser ? htmlspecialchars($editUser->getUserPhone(), ENT_QUOTES, 'UTF-8') : ''; ?>">
+                    <input type="text" class="form-control" name="phone" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserPhone(), ENT_QUOTES, 'UTF-8') : ''; ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">rol</label>
+                    <input type="text" class="form-control" name="id_rol" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserPhone(), ENT_QUOTES, 'UTF-8') : ''; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" name="address" value="<?php echo $editUser ? htmlspecialchars($editUser->getUserAddress(), ENT_QUOTES, 'UTF-8') : ''; ?>">
+                    <input type="text" class="form-control" name="address" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserAddress(), ENT_QUOTES, 'UTF-8') : ''; ?>">
                 </div>
-                <input type="hidden" name="update_user_id" value="<?php echo $editUser ? $editUser->getUserId() : ''; ?>">
-                <?php if ($editUser): ?>
+                <input type="hidden" name="update_user_id" value="<?php echo isset($editUser) ? $editUser->getUserId() : ''; ?>">
+                <?php if (isset($editUser)): ?>
                     <button type="submit" class="btn btn-primary" name="btnActualizar" value="ok">Actualizar</button>
                 <?php else: ?>
                     <button type="submit" class="btn btn-primary" name="create_user" value="ok">Registrar</button>
@@ -62,8 +64,8 @@ require_once './views/roles/crud_php/conexiones.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (!empty($users)) : ?>
-                        <?php foreach ($users as $user) : ?>
+                    <?php if (!empty($users)): ?>
+                        <?php foreach ($users as $user): ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($user->getUserId(), ENT_QUOTES, 'UTF-8'); ?></td>
                                 <td><?php echo htmlspecialchars($user->getUserName(), ENT_QUOTES, 'UTF-8'); ?></td>
@@ -89,7 +91,7 @@ require_once './views/roles/crud_php/conexiones.php';
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    <?php else : ?>
+                    <?php else: ?>
                         <tr>
                             <td colspan="7">No hay usuarios registrados.</td>
                         </tr>

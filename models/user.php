@@ -1,10 +1,6 @@
 <?php
-
-// Nombra la clase
 class User
 {
-
-    // Atributos
     private $dbh;
     private $user_id;
     private $user_name;
@@ -14,7 +10,6 @@ class User
     private $user_rol;
     private $user_phone;
 
-    // Sobrecarga de Constructores
     public function __construct()
     {
         try {
@@ -29,7 +24,6 @@ class User
         }
     }
 
-    # Constructor 07 parámetros
     public function __construct7($user_id, $user_name, $user_address, $user_email, $user_phone, $user_rol, $user_password)
     {
         $this->user_id = $user_id;
@@ -41,9 +35,6 @@ class User
         $this->user_phone = $user_phone;
     }
 
-    // Métodos setter y getter
-
-    # Usuario: Id
     public function setUserId($user_id)
     {
         $this->user_id = $user_id;
@@ -52,7 +43,6 @@ class User
     {
         return $this->user_id;
     }
-    # Usuario: Nombre         
     public function setUserName($user_name)
     {
         $this->user_name = $user_name;
@@ -61,7 +51,6 @@ class User
     {
         return $this->user_name;
     }
-    # Usuario: Correo         
     public function setUserEmail($user_email)
     {
         $this->user_email = $user_email;
@@ -70,7 +59,6 @@ class User
     {
         return $this->user_email;
     }
-    # Usuario: Contraseña        
     public function setUserPassword($user_password)
     {
         $this->user_password = $user_password;
@@ -79,7 +67,6 @@ class User
     {
         return $this->user_password;
     }
-    # Usuario: Direccion         
     public function setUserAddress($user_address)
     {
         $this->user_address = $user_address;
@@ -88,7 +75,6 @@ class User
     {
         return $this->user_address;
     }
-    # Usuario: Rol     
     public function setUserRol($user_rol)
     {
         $this->user_rol = $user_rol;
@@ -97,7 +83,6 @@ class User
     {
         return $this->user_rol;
     }
-    # Usuario: Teléfono         
     public function setUserPhone($user_phone)
     {
         $this->user_phone = $user_phone;
@@ -107,75 +92,38 @@ class User
         return $this->user_phone;
     }
 
-    // Métodos: Persistencia a la base de datos
 
-    # Login
-    public function Login()
+    public function user_create()
     {
         try {
-            $sql = 'SELECT * FROM USUARIOS
-                        WHERE user_email = :userEmail AND user_pass = :userPass';
+            $sql = 'INSERT INTO USUARIOS (nombre, email, contraseña,id_rol,celular, direccion, id_rol) VALUES (
+                        :nombre,
+                        :email,
+                        :contraseña,
+                        :celular,
+                        :1,
+                        :direccion,
+                        :id_rol
+                    )';
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue('userEmail', $this->getUserEmail());
-            $stmt->bindValue('userPass', sha1($this->getUserPassword()));
+            $stmt->bindValue(':nombre', $this->getUserName());
+            $stmt->bindValue(':email', $this->getUserEmail());
+            $stmt->bindValue(':contraseña', $this->getUserPassword());
+            $stmt->bindValue(':celular', $this->getUserPhone());
+            $stmt->bindValue(':direccion', $this->getUserAddress());
+            $stmt->bindValue(':id_rol', $this->getUserRol());
             $stmt->execute();
-            $userDb = $stmt->fetch();
-            if ($userDb) {
-                $user = new User(
-                    $userDb['rol_code'],
-                    $userDb['user_code'],
-                    $userDb['user_name'],
-                    $userDb['user_lastname'],
-                    $userDb['user_id'],
-                    $userDb['user_email'],
-                    $userDb['user_pass'],
-                    $userDb['user_state'],
-                    $userDb['Id_rol']
-                );
-                return $user;
-            } else {
-                return false;
-            }
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-
-    public function user_create()
-{
-    try {
-        $sql = 'INSERT INTO USUARIOS (nombre, email, contraseña, celular, direccion, id_rol) VALUES (
-                    :nombre,
-                    :email,
-                    :contraseña,
-                    :celular,
-                    :direccion,
-                    2 -- id del rol "Cliente"
-                )';
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->bindValue(':nombre', $this->getUserName(), PDO::PARAM_STR);
-        $stmt->bindValue(':email', $this->getUserEmail(), PDO::PARAM_STR);
-        $stmt->bindValue(':contraseña', $this->getUserPassword(), PDO::PARAM_STR);
-        $stmt->bindValue(':celular', $this->getUserPhone(), PDO::PARAM_STR);
-        $stmt->bindValue(':direccion', $this->getUserAddress(), PDO::PARAM_STR);
-        $stmt->execute();
-    } catch (Exception $e) {
-        die($e->getMessage());
-    }
-}
-
-    
-    # RF04_CU04 - Consultar Usuarios
     public function read_users()
     {
         try {
             $userList = [];
-            // Incluye la tabla de roles y la unión con la tabla de usuarios
-            $sql = 'SELECT u.*, r.nombre FROM USUARIOS u
-                    JOIN ROL r ON u.id_rol = r.id_rol';
+            $sql = 'SELECT u.*, r.nombre AS rol_nombre FROM USUARIOS u JOIN ROL r ON u.id_rol = r.id_rol';
             $stmt = $this->dbh->query($sql);
-    
             foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $userDb) {
                 $userObj = new User();
                 $userObj->setUserId($userDb['id_usuario']);
@@ -184,7 +132,7 @@ class User
                 $userObj->setUserPassword($userDb['contraseña']);
                 $userObj->setUserPhone($userDb['celular']);
                 $userObj->setUserAddress($userDb['direccion']);
-                $userObj->setUserRol($userDb['nombre']); // Ajusta esto según el nombre del campo de rol
+                $userObj->setUserRol($userDb['rol_nombre']);
                 array_push($userList, $userObj);
             }
             return $userList;
@@ -192,40 +140,52 @@ class User
             die($e->getMessage());
         }
     }
-public function update_users()
-{
-    try {
-        $sql = 'UPDATE USUARIOS SET
+
+    public function update_users()
+    {
+        try {
+            $sql = 'UPDATE USUARIOS SET
                     nombre = :UserName,
                     email = :UserEmail,
                     contraseña = :UserPassword,
                     celular = :UserPhone,
                     direccion = :UserAddress,
-                    user_rol = :UserRole
+                    id_rol = :UserRole
                 WHERE id_usuario = :UserCode';
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->bindValue(':UserCode', $this->getUserId(), PDO::PARAM_INT);
-        $stmt->bindValue(':UserName', $this->getUserName(), PDO::PARAM_STR);
-        $stmt->bindValue(':UserEmail', $this->getUserEmail(), PDO::PARAM_STR);
-        $stmt->bindValue(':UserPassword', $this->getUserPassword(), PDO::PARAM_STR);
-        $stmt->bindValue(':UserPhone', $this->getUserPhone(), PDO::PARAM_STR);
-        $stmt->bindValue(':UserAddress', $this->getUserAddress(), PDO::PARAM_STR);
-        $stmt->bindValue(':UserRole', $this->getUserRol(), PDO::PARAM_INT); // Asume que el rol es un entero
-        $stmt->execute();
-    } catch (Exception $e) {
-        die($e->getMessage());
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue(':UserCode', $this->getUserId());
+            $stmt->bindValue(':UserName', $this->getUserName());
+            $stmt->bindValue(':UserEmail', $this->getUserEmail());
+            $stmt->bindValue(':UserPassword', $this->getUserPassword());
+            $stmt->bindValue(':UserPhone', $this->getUserPhone());
+            $stmt->bindValue(':UserAddress', $this->getUserAddress());
+            $stmt->bindValue(':UserRole', $this->getUserRol());
+            $stmt->execute();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
-}
 
-
-    # RF07_CU07 - Eliminar Usuario
     public function delete_User($user_id)
     {
         try {
             $sql = 'DELETE FROM USUARIOS WHERE id_usuario = :UserCode';
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue('UserCode', $user_id);
+            $stmt->bindValue(':UserCode', $user_id);
             $stmt->execute();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function getRoleIdByName($role_name)
+    {
+        try {
+            $sql = 'SELECT id_rol FROM ROL WHERE nombre = :role_name';
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue(':role_name', $role_name, PDO::PARAM_STR);
+            $stmt->execute();
+            $role = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $role['id_rol'];
         } catch (Exception $e) {
             die($e->getMessage());
         }

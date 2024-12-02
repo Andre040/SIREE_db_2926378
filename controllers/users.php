@@ -1,37 +1,28 @@
 <?php
-require_once './models/User.php';
-
-class UserController {
+require_once "./models/user.php";
+class Users
+{
     private $userModel;
-    
-    public function createUser($user_data) {
-        try {
-            $this->userModel->setUserName($user_data['name']);
-            $this->userModel->setUserEmail($user_data['email']);
-            $this->userModel->setUserPassword($user_data['password']);
-            $this->userModel->setUserPhone($user_data['phone']);
-            $this->userModel->setUserAddress($user_data['address']);
-            $this->userModel->user_create();
-        } catch (Exception $e) {
-            echo json_encode(['error' => $e->getMessage()]);
-        }
-    }
-    
-    
-    public function __construct($userModel) {
+
+    public function __construct($userModel)
+    {
         $this->userModel = $userModel;
     }
 
-    public function listUsers() {
+    // Método para listar usuarios
+    public function listUsers()
+    {
         try {
             $users = $this->userModel->read_users();
-            // No imprimir los datos aquí, solo devolverlos
             return $users;
         } catch (Exception $e) {
             echo json_encode(['error' => $e->getMessage()]);
         }
     }
-    public function deleteUser($user_id) {
+
+    // Método para eliminar un usuario
+    public function deleteUser($user_id)
+    {
         try {
             $this->userModel->delete_User($user_id);
         } catch (Exception $e) {
@@ -39,5 +30,48 @@ class UserController {
         }
     }
 
+    // Método para actualizar un usuario
+    public function updateUser($user_id, $user_data)
+    {
+        try {
+            $this->userModel->setUserId($user_id);
+            $this->userModel->setUserName($user_data['name']);
+            $this->userModel->setUserEmail($user_data['email']);
+            $this->userModel->setUserPassword($user_data['password']);
+            $this->userModel->setUserPhone($user_data['phone']);
+            $this->userModel->setUserAddress($user_data['address']);
+            $this->userModel->setUserRol($user_data['role']);
+            $this->userModel->update_users();
+        } catch (Exception $e) {
+            echo json_encode(['error' => $e->getMessage()]);
+        }
+    }
+
+    // Método para crear un usuario
+    public function createUser($user_data)
+    {
+        try {
+            // Obtener el ID del rol de "Cliente" desde la tabla `ROL`
+            $roleId = $this->userModel->getRoleIdByName('Cliente');
+            $this->userModel->setUserName($user_data['name']);
+            $this->userModel->setUserEmail($user_data['email']);
+            $this->userModel->setUserPassword($user_data['password']);
+            $this->userModel->setUserPhone($user_data['phone']);
+            $this->userModel->setUserAddress($user_data['address']);
+            $this->userModel->setUserRol($roleId); // Asignar el ID del rol 
+            $this->userModel->user_create();
+        } catch (Exception $e) {
+            echo json_encode(['error' => $e->getMessage()]);
+        }
+    }
+
+    // Método para obtener un usuario por su ID
+    public function getUserById($user_id)
+    {
+        try {
+            return $this->userModel->get_user_by_id($user_id);
+        } catch (Exception $e) {
+            echo json_encode(['error' => $e->getMessage()]);
+        }
+    }
 }
-?>
