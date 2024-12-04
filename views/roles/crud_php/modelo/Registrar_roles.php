@@ -20,8 +20,8 @@ require_once './views/roles/crud_php/conexiones/RolConection.php';
             <!-- Formulario para registrar/modificar roles -->
             <form method="POST" action="">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nombre del Rol</label>
-                    <input type="text" class="form-control" name="name" value="<?php echo isset($editRol) ? htmlspecialchars($editRol->getRolName()) : ''; ?>">
+                    <label for="nombre" class="form-label">Nombre del Rol</label>
+                    <input type="text" class="form-control" name="nombre" value="<?php echo isset($editRol) ? htmlspecialchars($editRol->getRolName()) : ''; ?>">
                 </div>
                 <input type="hidden" name="update_rol_id" value="<?php echo isset($editRol) ? $editRol->getRolId() : ''; ?>">
                 <?php if (isset($editRol)): ?>
@@ -41,15 +41,15 @@ require_once './views/roles/crud_php/conexiones/RolConection.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (!empty($rols)): ?>
-                        <?php foreach ($rols as $rol): ?>
+                    <?php if (!empty($roles)): ?>
+                        <?php foreach ($roles as $rol): ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($rol->getRolId()); ?></td>
                                 <td><?php echo htmlspecialchars($rol->getRolName()); ?></td>
                                 <td>
                                     <!-- Botón para editar rol -->
                                     <form method="POST" action="" style="display:inline;">
-                                        <input type="hidden" name="edit_rol_id" value="<?php echo $rol->getRolId(); ?>">
+                                        <input a="modificar_rol.php?id=<??>" type="hidden" name="edit_rol_id" value="<?php echo $rol->getRolId(); ?>">
                                         <button type="submit" class="btn btn-small btn-warning">
                                             <i class="fa-regular fa-pen-to-square fa-shake" style="color: black;"></i>
                                         </button>
@@ -76,4 +76,3 @@ require_once './views/roles/crud_php/conexiones/RolConection.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-

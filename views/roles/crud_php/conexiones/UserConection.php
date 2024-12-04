@@ -3,6 +3,7 @@ require_once './models/user.php';
 require_once './controllers/users.php';
 
 try {
+    // Conexión a la base de datos
     $dbh = DataBase::connection();
     $userModel = new User($dbh);
     $userController = new Users($userModel);
@@ -24,13 +25,31 @@ try {
             'email' => $_POST['email'],
             'password' => $_POST['password'],
             'phone' => $_POST['phone'],
-            'id_rol' => $_POST['id_rol'],
             'address' => $_POST['address']
-
         ];
         $userController->createUser($user_data);
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
+    }
+
+    // Manejar la solicitud de actualización de usuario
+    if (isset($_POST['btnActualizar'])) {
+        $user_data = [
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'phone' => $_POST['phone'],
+            'address' => $_POST['address'],
+            'role' => 1 // Rol predeterminado a 1 (Cliente)
+        ];
+        $userController->updateUser($_POST['update_user_id'], $user_data);
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        exit();
+    }
+
+    // Manejar la solicitud de edición de usuario
+    if (isset($_POST['edit_user_id'])) {
+        $editUser = $userController->getUserById($_POST['edit_user_id']);
     }
 
     // Llamar al método para listar los usuarios y almacenar los resultados en $users

@@ -1,5 +1,6 @@
 <?php
-require_once './views/roles/crud_php/conexiones/UserConection.php';?>
+require_once './views/roles/crud_php/conexiones/UserConection.php';
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -18,37 +19,34 @@ require_once './views/roles/crud_php/conexiones/UserConection.php';?>
             <h3 class="text-center text-secondary">Registro de Personas</h3>
             <!-- Formulario para registrar/modificar personas -->
             <form method="POST" action="">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nombre de la Persona</label>
-                    <input type="text" class="form-control" name="name" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserName(), ENT_QUOTES, 'UTF-8') : ''; ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" name="email" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserEmail(), ENT_QUOTES, 'UTF-8') : ''; ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="text" class="form-control" name="password" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserPassword(), ENT_QUOTES, 'UTF-8') : ''; ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Celular</label>
-                    <input type="text" class="form-control" name="phone" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserPhone(), ENT_QUOTES, 'UTF-8') : ''; ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="phone" class="form-label">rol</label>
-                    <input type="text" class="form-control" name="id_rol" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserPhone(), ENT_QUOTES, 'UTF-8') : ''; ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="address" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" name="address" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserAddress(), ENT_QUOTES, 'UTF-8') : ''; ?>">
-                </div>
-                <input type="hidden" name="update_user_id" value="<?php echo isset($editUser) ? $editUser->getUserId() : ''; ?>">
-                <?php if (isset($editUser)): ?>
-                    <button type="submit" class="btn btn-primary" name="btnActualizar" value="ok">Actualizar</button>
-                <?php else: ?>
-                    <button type="submit" class="btn btn-primary" name="create_user" value="ok">Registrar</button>
-                <?php endif; ?>
-            </form>
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre de la Persona</label>
+        <input type="text" class="form-control" name="name" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserName()) : ''; ?>">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" name="email" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserEmail()) : ''; ?>">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="text" class="form-control" name="password" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserPassword()) : ''; ?>">
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">Celular</label>
+        <input type="text" class="form-control" name="phone" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserPhone()) : ''; ?>">
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Dirección</label>
+        <input type="text" class="form-control" name="address" value="<?php echo isset($editUser) ? htmlspecialchars($editUser->getUserAddress()) : ''; ?>">
+    </div>
+    <input type="hidden" name="update_user_id" value="<?php echo isset($editUser) ? $editUser->getUserId() : ''; ?>">
+    <?php if (isset($editUser)): ?>
+        <button type="submit" class="btn btn-primary" name="btnActualizar" value="ok">Actualizar</button>
+    <?php else: ?>
+        <button type="submit" class="btn btn-primary" name="create_user" value="ok">Registrar</button>
+    <?php endif; ?>
+</form>
+
         </div>
         <div class="col-8 p-4">
             <table class="table">
@@ -67,12 +65,12 @@ require_once './views/roles/crud_php/conexiones/UserConection.php';?>
                     <?php if (!empty($users)): ?>
                         <?php foreach ($users as $user): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($user->getUserId(), ENT_QUOTES, 'UTF-8'); ?></td>
-                                <td><?php echo htmlspecialchars($user->getUserName(), ENT_QUOTES, 'UTF-8'); ?></td>
-                                <td><?php echo htmlspecialchars($user->getUserEmail(), ENT_QUOTES, 'UTF-8'); ?></td>
-                                <td><?php echo htmlspecialchars($user->getUserRol(), ENT_QUOTES, 'UTF-8'); ?></td>
-                                <td><?php echo htmlspecialchars($user->getUserPhone(), ENT_QUOTES, 'UTF-8'); ?></td>
-                                <td><?php echo htmlspecialchars($user->getUserAddress(), ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td><?php echo htmlspecialchars($user->getUserId()); ?></td>
+                                <td><?php echo htmlspecialchars($user->getUserName()); ?></td>
+                                <td><?php echo htmlspecialchars($user->getUserEmail()); ?></td>
+                                <td><?php echo htmlspecialchars($user->getUserRol()); ?></td>
+                                <td><?php echo htmlspecialchars($user->getUserPhone()); ?></td>
+                                <td><?php echo htmlspecialchars($user->getUserAddress()); ?></td>
                                 <td>
                                     <!-- Botón para editar usuario -->
                                     <form method="POST" action="" style="display:inline;">

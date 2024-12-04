@@ -13,8 +13,7 @@ class Users
     public function listUsers()
     {
         try {
-            $users = $this->userModel->read_users();
-            return $users;
+            return $this->userModel->read_users();
         } catch (Exception $e) {
             echo json_encode(['error' => $e->getMessage()]);
         }
@@ -47,23 +46,20 @@ class Users
         }
     }
 
-    // Método para crear un usuario
     public function createUser($user_data)
-    {
-        try {
-            // Obtener el ID del rol de "Cliente" desde la tabla `ROL`
-            $roleId = $this->userModel->getRoleIdByName('Cliente');
-            $this->userModel->setUserName($user_data['name']);
-            $this->userModel->setUserEmail($user_data['email']);
-            $this->userModel->setUserPassword($user_data['password']);
-            $this->userModel->setUserPhone($user_data['phone']);
-            $this->userModel->setUserAddress($user_data['address']);
-            $this->userModel->setUserRol($roleId); // Asignar el ID del rol 
-            $this->userModel->user_create();
-        } catch (Exception $e) {
-            echo json_encode(['error' => $e->getMessage()]);
-        }
+{
+    try {
+        $this->userModel->setUserName($user_data['name']);
+        $this->userModel->setUserEmail($user_data['email']);
+        $this->userModel->setUserPassword($user_data['password']);
+        $this->userModel->setUserPhone($user_data['phone']);
+        $this->userModel->setUserAddress($user_data['address']);
+        $this->userModel->user_create();
+    } catch (Exception $e) {
+        echo json_encode(['error' => $e->getMessage()]);
     }
+}
+
 
     // Método para obtener un usuario por su ID
     public function getUserById($user_id)
