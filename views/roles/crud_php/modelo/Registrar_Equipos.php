@@ -1,5 +1,5 @@
 <?php
-// vista_registro_equipo.php
+require_once './views/roles/crud_php/conexiones/ComputerConexion.php'
 ?>
 
 <!DOCTYPE html>

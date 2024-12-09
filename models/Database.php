@@ -2,7 +2,7 @@
     class DataBase{        
         public static function connection(){
             $hostname = "localhost";
-            $port = "3307";
+            $port = "3306";
             $database = "DB_SIREE";
             $username = "root";
             $password = "";

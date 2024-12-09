@@ -1,19 +1,16 @@
 <?php
 require_once './models/Equipo.php'; 
 require_once './controllers/Equipo.php';
-
 try {
-    $dbh = DataBase::connection(); // Conexión a la base de datos
-    $equipoModel = new Equipo($dbh); // Instancia del modelo de equipos
-    $equipoController = new Equipos($equipoModel); // Instancia del controlador de equipos
+    $dbh = DataBase::connection();
+    $equipoModel = new Equipo($dbh); 
+    $equipoController = new Equipos($equipoModel); 
 
-    // Variables para cargar datos en el formulario
     $editEquipo = null;
 
-    // Manejar la solicitud de eliminación
     if (isset($_POST['delete_equipo_id'])) {
         $equipoController->deleteEquipo($_POST['delete_equipo_id']);
-        header('Location: ' . $_SERVER['PHP_SELF']); // Redirige para evitar reposteo de formularios
+        header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
     }
 
