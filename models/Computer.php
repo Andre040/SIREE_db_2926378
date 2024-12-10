@@ -1,9 +1,5 @@
 <?php
-// Nombra la clase
-class Computer
-{
-
-    // Atributos
+class Computer {
     private $dbh;
     private $Computer_id;
     private $Computer_name;
@@ -11,108 +7,80 @@ class Computer
     private $Computer_price_rent;
     private $Computer_status;
     private $Computer_available_quantity;
-    // Sobrecarga de Constructores
-    public function __construct()
-    {
+
+    public function __construct($dbh) {
+        $this->dbh = $dbh;
+    }
+
+    // Métodos setter y getter para las propiedades
+
+    public function setComputerId($Computer_id) {
+        $this->Computer_id = $Computer_id;
+    }
+    public function getComputerId() {
+        return $this->Computer_id;
+    }
+
+    public function setComputerName($Computer_name) {
+        $this->Computer_name = $Computer_name;
+    }
+    public function getComputerName() {
+        return $this->Computer_name;
+    }
+
+    public function setComputerCategory($Computer_category) {
+        $this->Computer_category = $Computer_category;
+    }
+    public function getComputerCategory() {
+        return $this->Computer_category;
+    }
+
+    public function setComputerPriceRent($Computer_price_rent) {
+        $this->Computer_price_rent = $Computer_price_rent;
+    }
+    public function getComputerPriceRent() {
+        return $this->Computer_price_rent;
+    }
+
+    public function setComputerStatus($Computer_status) {
+        $this->Computer_status = $Computer_status;
+    }
+    public function getComputerStatus() {
+        return $this->Computer_status;
+    }
+
+    public function setComputerAvailableQuantity($Computer_available_quantity) {
+        $this->Computer_available_quantity = $Computer_available_quantity;
+    }
+    public function getComputerAvailableQuantity() {
+        return $this->Computer_available_quantity;
+    }
+
+    // Método para crear una computadora
+    public function Computer_create() {
         try {
-            $this->dbh = DataBase::connection();
-            $a = func_get_args();
-            $i = func_num_args();
-            if (method_exists($this, $f = '__construct' . $i)) {
-                call_user_func_array(array($this, $f), $a);
-            }
+            $sql = "INSERT INTO EQUIPOS (nombre, categoria, valor_renta, estado, cantidad_disponible) VALUES (:nombre, :categoria, :valor_renta, :estado, :cantidad_disponible)";
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue(':nombre', $this->getComputerName(), PDO::PARAM_STR);
+            $stmt->bindValue(':categoria', $this->getComputerCategory(), PDO::PARAM_STR);
+            $stmt->bindValue(':valor_renta', $this->getComputerPriceRent(), PDO::PARAM_STR);
+            $stmt->bindValue(':estado', $this->getComputerStatus(), PDO::PARAM_STR);
+            $stmt->bindValue(':cantidad_disponible', $this->getComputerAvailableQuantity(), PDO::PARAM_INT);
+            $stmt->execute();
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-    # Constructor 06 parámetros
-    public function __construct6($Computer_id, $Computer_name, $Computer_category, $Computer_price_rent, $Computer_status, $Computer_available_quantity)
-    {
-        $this->Computer_id = $Computer_id;
-        $this->Computer_name = $Computer_name;
-        $this->Computer_category = $Computer_category;
-        $this->Computer_price_rent = $Computer_price_rent;
-        $this->Computer_status = $Computer_status;
-        $this->Computer_available_quantity = $Computer_available_quantity;
-    }
-    // Métodos setter y getter
 
-    # Computador: Id
-    public function setComputerId($Computer_id)
-    {
-        $this->Computer_id = $Computer_id;
-    }
-    public function getComputerId()
-    {
-        return $this->Computer_id;
-    }
-    # Computador: Nombre         
-    public function setComputerName($Computer_name)
-    {
-        $this->Computer_name = $Computer_name;
-    }
-    public function getComputerName()
-    {
-        return $this->Computer_name;
-    }
-    # Computador: Categoria         
-    public function setComputerCategory($Computer_category)
-    {
-        $this->Computer_category = $Computer_category;
-    }
-    public function getComputerCategory()
-    {
-        return $this->Computer_category;
-    }
-    # Computador: Precio de renta         
-    public function setComputerPriceRent($Computer_price_rent)
-    {
-        $this->Computer_price_rent = $Computer_price_rent;
-    }
-    public function getComputerPriceRent()
-    {
-        return $this->Computer_price_rent;
-    }
-    # Computador: estado  
-    public function setComputerStatus($Computer_status)
-    {
-        $this->Computer_status = $Computer_status;
-    }
-    public function getComputerStatus()
-    {
-        return $this->Computer_status;
-    }
-    # Computador: Cantidad disponible   
-    public function setComputerAvailableQuantity($Computer_available_quantity)
-    {
-        $this->Computer_available_quantity = $Computer_available_quantity;
-    }
-    public function getComputerAvailableQuantity()
-    {
-        return $this->Computer_available_quantity;
-    }
-    // Crear (Create)
-    public function Computer_create()
-    {
-        $sql = "INSERT INTO EQUIPOS VALUES (:id_equipo, :nombre, :categoria, :valor_renta, : estado, :cantidad_dispoible)";
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->bindValue(':id_Computador', $this->Computer_id);
-        $stmt->bindValue(':nombre', $this->Computer_name);
-        $stmt->bindValue(':categoria', $this->Computer_category);
-        $stmt->bindValue(':valor_renta', $this->Computer_price_rent);
-        $stmt->bindValue(':estado', $this->Computer_status);
-        $stmt->bindValue(':cantidad_disponible', $this->Computer_available_quantity);
-        $stmt->execute();
-    }
-
-    public function Computer_read()
-    {
+    // Método para leer computadoras
+    public function Computer_read() {
         try {
             $ComputerList = [];
             $sql = 'SELECT * FROM EQUIPOS';
             $stmt = $this->dbh->query($sql);
-            foreach ($stmt->fetchAll() as $Computer) {
-                $ComputerObj = new Computer;
+            foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $Computer) {
+                $ComputerObj = new Computer($this->dbh);
+                $ComputerObj->setComputerId($Computer['id_equipo']);
                 $ComputerObj->setComputerName($Computer['nombre']);
                 $ComputerObj->setComputerCategory($Computer['categoria']);
                 $ComputerObj->setComputerPriceRent($Computer['valor_renta']);
@@ -125,40 +93,34 @@ class Computer
             die($e->getMessage());
         }
     }
-    public function update_Computer()
-    {
+
+    // Método para actualizar una computadora
+    public function update_Computer() {
         try {
-            $sql = 'UPDATE Equipos SET
-                    nombre = :ComputerName,
-                    categoria = :ComputerCategory,
-                    valor_renta = :ComputerPriceRent,
-                    estado = :ComputerStatus,
-                    cantidad_disponible = :ComputerAvalaibleQuantity,
-                WHERE id_equipo = :ComputerCode';
+            $sql = 'UPDATE EQUIPOS SET nombre = :nombre, categoria = :categoria, valor_renta = :valor_renta, estado = :estado, cantidad_disponible = :cantidad_disponible WHERE id_equipo = :id_equipo';
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue(':ComputerCode', $this->getComputerId());
-            $stmt->bindValue(':ComputerName', $this->getComputerName());
-            $stmt->bindValue(':ComputerCategory', $this->getComputerCategory());
-            $stmt->bindValue(':ComputerPriceRent', $this->getComputerPriceRent());
-            $stmt->bindValue(':ComputerStatus', $this->getComputerStatus());
-            $stmt->bindValue(':ComputerAvailaibleQuantity', $this->getComputerAvailableQuantity());
+            $stmt->bindValue(':id_equipo', $this->getComputerId(), PDO::PARAM_INT);
+            $stmt->bindValue(':nombre', $this->getComputerName(), PDO::PARAM_STR);
+            $stmt->bindValue(':categoria', $this->getComputerCategory(), PDO::PARAM_STR);
+            $stmt->bindValue(':valor_renta', $this->getComputerPriceRent(), PDO::PARAM_STR);
+            $stmt->bindValue(':estado', $this->getComputerStatus(), PDO::PARAM_STR);
+            $stmt->bindValue(':cantidad_disponible', $this->getComputerAvailableQuantity(), PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-    
-    public function delete_Computer($Computer_id)
-    {
+
+    // Método para eliminar una computadora
+    public function delete_Computer($Computer_id) {
         try {
-            $sql = 'DELETE FROM EQUIPOS WHERE id_equipo = :ComputerCode';
+            $sql = 'DELETE FROM EQUIPOS WHERE id_equipo = :id_equipo';
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue(':ComputerCode', $Computer_id);
+            $stmt->bindValue(':id_equipo', $Computer_id, PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 }
-
-
+?>

@@ -31,6 +31,18 @@ try {
         exit();
     }
 
+    // Manejar la solicitud de edición de computadora (cargar datos en el formulario)
+    if (isset($_POST['edit_computer_id'])) {
+        $computerId = $_POST['edit_computer_id'];
+        $computers = $computersController->listComputers();
+        foreach ($computers as $computer) {
+            if ($computer->getComputerId() == $computerId) {
+                $editComputer = $computer;
+                break;
+            }
+        }
+    }
+
     // Manejar la solicitud de actualización de computadora
     if (isset($_POST['btnActualizar'])) {
         $computer_data = [
@@ -40,13 +52,13 @@ try {
             'estado' => $_POST['estado'],
             'cantidad_disponible' => $_POST['cantidad_disponible']
         ];
-        $computersController->UpdateComputer($_POST['update_computer_id'], $computer_data);
+        $computersController->updateComputer($_POST['update_computer_id'], $computer_data);
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
     }
 
     // Llamar al método para listar las computadoras y almacenar los resultados en $computers
-    $computers = $computersController->listComputer();
+    $computers = $computersController->listComputers();
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();
 }

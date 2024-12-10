@@ -1,11 +1,8 @@
 <?php
 require_once './views/roles/crud_php/conexiones/ComputerConexion.php'
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
@@ -20,7 +17,7 @@ require_once './views/roles/crud_php/conexiones/ComputerConexion.php'
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Mi Aplicación</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">  
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -43,13 +40,33 @@ require_once './views/roles/crud_php/conexiones/ComputerConexion.php'
     <div class="container-fluid row">
         <div class="col-4 p-3">
             <h3 class="text-center text-secondary">Registro de Equipos</h3>
-            <!-- Formulario para registrar/modificar equipos -->
             <form method="POST" action="">
-                <div class="mb-3"> <label for="nombre" class="form-label">Nombre del Equipo</label> <input type="text" class="form-control" name="nombre" required> </div>
-                <div class="mb-3"> <label for="categoria" class="form-label">Categoría</label> <input type="text" class="form-control" name="categoria" required> </div>
-                <div class="mb-3"> <label for="valor_renta" class="form-label">Valor de Renta</label> <input type="text" class="form-control" name="valor_renta" required> </div>
-                <div class="mb-3"> <label for="estado" class="form-label">Estado</label> <input type="text" class="form-control" name="estado" required> </div>
-                <div class="mb-3"> <label for="cantidad_disponible" class="form-label">Cantidad Disponible</label> <input type="number" class="form-control" name="cantidad_disponible" required min="0"> </div> <input type="hidden" name="update_computer_id" value="<?php echo isset($editComputer) ? $editComputer->getComputerId() : ''; ?>"> <?php if (isset($editComputer)): ?> <button type="submit" class="btn btn-primary" name="btnActualizar" value="ok">Actualizar</button> <?php else: ?> <button type="submit" class="btn btn-primary" name="create_computer" value="ok">Registrar</button> <?php endif; ?>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del Equipo</label>
+                    <input type="text" class="form-control" name="nombre" value="<?php echo isset($editComputer) ? htmlspecialchars($editComputer->getComputerName()) : ''; ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">Categoría</label>
+                    <input type="text" class="form-control" name="categoria" value="<?php echo isset($editComputer) ? htmlspecialchars($editComputer->getComputerCategory()) : ''; ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="valor_renta" class="form-label">Valor de Renta</label>
+                    <input type="text" class="form-control" name="valor_renta" value="<?php echo isset($editComputer) ? htmlspecialchars($editComputer->getComputerPriceRent()) : ''; ?>" required pattern="^\d+(\.\d{1,2})?$">
+                </div>
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" name="estado" value="<?php echo isset($editComputer) ? htmlspecialchars($editComputer->getComputerStatus()) : ''; ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cantidad_disponible" class="form-label">Cantidad Disponible</label>
+                    <input type="number" class="form-control" name="cantidad_disponible" value="<?php echo isset($editComputer) ? htmlspecialchars($editComputer->getComputerAvailableQuantity()) : ''; ?>" required min="0">
+                </div>
+                <input type="hidden" name="update_computer_id" value="<?php echo isset($editComputer) ? $editComputer->getComputerId() : ''; ?>">
+                <?php if (isset($editComputer)): ?>
+                    <button type="submit" class="btn btn-primary" name="btnActualizar" value="ok">Actualizar</button>
+                <?php else: ?>
+                    <button type="submit" class="btn btn-primary" name="create_computer" value="ok">Registrar</button>
+                <?php endif; ?>
             </form>
         </div>
         <div class="col-8 p-4">
@@ -103,7 +120,5 @@ require_once './views/roles/crud_php/conexiones/ComputerConexion.php'
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="../../../../assets/Landing/js/Equipos.js"></script>
 </body>
-
 </html>
