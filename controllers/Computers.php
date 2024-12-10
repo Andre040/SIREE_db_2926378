@@ -9,6 +9,7 @@ class Computers
     {
         $this->ComputerModel = $ComputerModel;
     }
+    // Metodo para registrar computadoras
     public function createComputer($Computer_data)
     {
         try {

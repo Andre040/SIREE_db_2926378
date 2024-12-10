@@ -61,11 +61,11 @@ class Computer {
         try {
             $sql = "INSERT INTO EQUIPOS (nombre, categoria, valor_renta, estado, cantidad_disponible) VALUES (:nombre, :categoria, :valor_renta, :estado, :cantidad_disponible)";
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue(':nombre', $this->getComputerName(), PDO::PARAM_STR);
-            $stmt->bindValue(':categoria', $this->getComputerCategory(), PDO::PARAM_STR);
-            $stmt->bindValue(':valor_renta', $this->getComputerPriceRent(), PDO::PARAM_STR);
-            $stmt->bindValue(':estado', $this->getComputerStatus(), PDO::PARAM_STR);
-            $stmt->bindValue(':cantidad_disponible', $this->getComputerAvailableQuantity(), PDO::PARAM_INT);
+            $stmt->bindValue(':nombre', $this->getComputerName());
+            $stmt->bindValue(':categoria', $this->getComputerCategory());
+            $stmt->bindValue(':valor_renta', $this->getComputerPriceRent());
+            $stmt->bindValue(':estado', $this->getComputerStatus());
+            $stmt->bindValue(':cantidad_disponible', $this->getComputerAvailableQuantity());
             $stmt->execute();
         } catch (Exception $e) {
             die($e->getMessage());
@@ -99,12 +99,12 @@ class Computer {
         try {
             $sql = 'UPDATE EQUIPOS SET nombre = :nombre, categoria = :categoria, valor_renta = :valor_renta, estado = :estado, cantidad_disponible = :cantidad_disponible WHERE id_equipo = :id_equipo';
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue(':id_equipo', $this->getComputerId(), PDO::PARAM_INT);
-            $stmt->bindValue(':nombre', $this->getComputerName(), PDO::PARAM_STR);
-            $stmt->bindValue(':categoria', $this->getComputerCategory(), PDO::PARAM_STR);
-            $stmt->bindValue(':valor_renta', $this->getComputerPriceRent(), PDO::PARAM_STR);
-            $stmt->bindValue(':estado', $this->getComputerStatus(), PDO::PARAM_STR);
-            $stmt->bindValue(':cantidad_disponible', $this->getComputerAvailableQuantity(), PDO::PARAM_INT);
+            $stmt->bindValue(':id_equipo', $this->getComputerId());
+            $stmt->bindValue(':nombre', $this->getComputerName());
+            $stmt->bindValue(':categoria', $this->getComputerCategory());
+            $stmt->bindValue(':valor_renta', $this->getComputerPriceRent());
+            $stmt->bindValue(':estado', $this->getComputerStatus());
+            $stmt->bindValue(':cantidad_disponible', $this->getComputerAvailableQuantity());
             $stmt->execute();
         } catch (Exception $e) {
             die($e->getMessage());
@@ -116,7 +116,7 @@ class Computer {
         try {
             $sql = 'DELETE FROM EQUIPOS WHERE id_equipo = :id_equipo';
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue(':id_equipo', $Computer_id, PDO::PARAM_INT);
+            $stmt->bindValue(':id_equipo', $Computer_id);
             $stmt->execute();
         } catch (Exception $e) {
             die($e->getMessage());
