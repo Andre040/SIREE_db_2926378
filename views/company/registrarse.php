@@ -31,7 +31,7 @@
             <p>Estoy de acuerdo con <a href="" class="Enlace" target="_blank">Términos y condiciones</a>
                 <input class="confirmar" type="checkbox" name="check" id="confirmar">
             </p>
-            <a href="inicar.html" class="Enlace">Iniciar sesión</a>
+            <a href="../company/iniciar.php" target="_blank" class="Enlace">Iniciar sesión</a>
             <button class="botones" type="submit" onfocus="ocultar()">Insertar</button>
         </form>
     </section>
