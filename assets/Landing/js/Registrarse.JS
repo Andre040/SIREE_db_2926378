@@ -106,7 +106,7 @@ function Alert(event) {
         icon: "success",
         title: "¡Bienvenido!",
         text: "Te registraste correctamente",
-        confirmButtonText: '<a href="Pagina.html">Aceptar</a>',
+        confirmButtonText: '<a href="../roles/crud_php/registrar_computadores.php">Aceptar</a>',
       });
       // Aquí podrías enviar el formulario si todo es válido
     }

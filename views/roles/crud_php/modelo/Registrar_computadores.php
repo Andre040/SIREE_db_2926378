@@ -66,14 +66,14 @@ require_once './views/roles/crud_php/conexiones/ComputerConexion.php';
                                         <td><?php echo htmlspecialchars($computer->getComputerAvailableQuantity()); ?></td>
                                         <td>
                                             <div class="d-flex">
-                                                <!-- Botón Editar -->
+                                             
                                                 <form method="POST" action="" class="me-2">
                                                     <input type="hidden" name="edit_computer_id" value="<?php echo $computer->getComputerId(); ?>">
                                                     <button type="submit" class="btn btn-warning btn-sm">
                                                         <i class="fa-regular fa-pen-to-square"></i>
                                                     </button>
                                                 </form>
-                                                <!-- Botón Borrar -->
+                                               
                                                 <form method="POST" action="">
                                                     <input type="hidden" name="delete_computer_id" value="<?php echo $computer->getComputerId(); ?>">
                                                     <button type="submit" class="btn btn-danger btn-sm">
@@ -95,7 +95,6 @@ require_once './views/roles/crud_php/conexiones/ComputerConexion.php';
             </div>
         </div>
         
-        <!-- Sección desplegable para el formulario -->
         <div class="accordion mt-4" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">

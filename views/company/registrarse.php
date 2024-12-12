@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,8 +32,8 @@
             <p>Estoy de acuerdo con <a href="" class="Enlace" target="_blank">Términos y condiciones</a>
                 <input class="confirmar" type="checkbox" name="check" id="confirmar">
             </p>
-            <a href="../company/iniciar.php" target="_blank" class="Enlace">Iniciar sesión</a>
             <button class="botones" type="submit" onfocus="ocultar()">Insertar</button>
+            <a href="#" target="_blank" class="Enlace">Iniciar sesión</a>
         </form>
     </section>
     <script src="././assets/Landing/js/Registrarse.JS"></script>
